@@ -1,10 +1,19 @@
-from flask import Flask
+from flask import Flask, render_template, request
 
+# create server object 
 app = Flask(__name__)
 
-@app.route('/members')
-def members():
-    return {"members" : ["Member1", "Member2", "Member3"]}
+# create routes 
+@app.route('/', methods=["GET", "POST"])
+def index():
+    if request.method == "GET":
+        pass
+    if request.method == "POST":
+        request.form.get("name")
+        request.form.post("name")
+
+    
+    return render_template("index.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
