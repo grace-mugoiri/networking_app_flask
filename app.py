@@ -9,8 +9,9 @@ def index():
     if request.method == "GET":
         pass
     if request.method == "POST":
-        request.form.get("name")
-        request.form.post("name")
+        name = request.form.get("name")
+        post = request.form.get("post")
+        create_post(name, post)
 
     
     return render_template("index.html")
