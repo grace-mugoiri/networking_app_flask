@@ -1,10 +1,10 @@
-import sqlite3
+import sqlite3 as sql
 from os import path
 
 ROOT = path.dirname(path.relpath((__file__)))
 
 def create_post(name, content):
-    conn = sqlite3.connect(path.join(ROOT, 'database.db'))
+    conn = sql.connect(path.join(ROOT, 'database.db'))
 
     # instead of grabbing the whole db cur picks up what it needs 
     cur = conn.cursor()
@@ -16,7 +16,7 @@ def create_post(name, content):
     conn.close()
 
 def get_posts():
-    conn = sqlite3.connect(path.join(ROOT, 'database.db'))
+    conn = sql.connect(path.join(ROOT, 'database.db'))
     cur = conn.cursor()
 
     cur.execute('select * from posts')
